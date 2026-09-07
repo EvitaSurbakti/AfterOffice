@@ -113,4 +113,20 @@ describe('create booking testing', function() {
 
         expect(responseDeleteBooking.status).to.equal(201);
     })
+
+    it.only('get booking by id after deletion', async function() {
+        this.timeout(600000);
+
+        let header = {
+            'Accept': 'application/json'
+        }
+
+        let responseGetBookingAfterDeletion = await request(base_url)
+            .get(`booking/${bookingId}`)
+            .set(header);
+
+        console.log('responseGetBookingAfterDeletion', responseGetBookingAfterDeletion.body);
+
+        expect(responseGetBookingAfterDeletion.status).to.equal(404);
+    })
 })
