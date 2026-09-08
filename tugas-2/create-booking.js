@@ -114,7 +114,7 @@ describe('create booking testing', function() {
         expect(responseDeleteBooking.status).to.equal(201);
     })
 
-    it.only('get booking by id after deletion', async function() {
+    it('get booking by id after deletion', async function() {
         this.timeout(600000);
 
         let header = {
